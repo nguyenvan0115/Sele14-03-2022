@@ -8,14 +8,14 @@ public class Student {
     public  String name;
 
 //    Constructos
-    public  Student(){
-
+    public  Student(){ // khong co Prameter : k cos tham so
     }
-    public Student(int sId, String sName){
+
+    public Student(int sId, String sName){ // co Prameter : co tham so
         id = sId;
+        //this dc dung giong nhu thay the vs cai Object hien tai cua class nay
         name = sName;
     }
-
     //Methods
     public void setId(int sId) {
         id = sId;
@@ -27,12 +27,18 @@ public class Student {
 
     //public method
     public int getId(){
-        return id;
+
+        return id; // == return this.id;
     }
     public String getName(){
         return name;
     }
 
     //private methods
+
+    // static Methods
+    public static void getMessage(){
+        System.out.println("This is static method");
+    }
 
 }

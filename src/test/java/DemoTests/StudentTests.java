@@ -10,7 +10,7 @@ public class StudentTests {
         System.out.println("This is my first test!!!");
 
         int n = 10;
-        Student student = new Student();
+        Student student = new Student(); // a new Object
         student.id = 1;
         student.name = "Nguyen Van A";
         System.out.println("ID: "+ student.id);
@@ -18,7 +18,7 @@ public class StudentTests {
     }
     @Test
     public void initializationThroughMethodTest(){
-        Student student = new Student();
+        Student student = new Student(); // a new Object
         student.setId(2);
         student.setName("Marry");
         System.out.println("ID: "+ student.id);
@@ -36,6 +36,10 @@ public class StudentTests {
         System.out.println("ID: "+ student.getId());
         System.out.println("Name: "+ student.getName());
 
+    }
+    @Test
+    public void staticMethodTest(){
+        Student.getMessage();
     }
 
 }
