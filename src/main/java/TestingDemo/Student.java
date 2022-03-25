@@ -41,4 +41,7 @@ public class Student {
         System.out.println("This is static method");
     }
 
+
+    
+
 }

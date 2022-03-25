@@ -38,6 +38,12 @@ public class EmployeeTests {
         System.out.println("Name: "+employee.getName());
         System.out.println("Dob: " + employee.getDob());
     }
+    // ==
+    @Test
+    public void print(){
+        Employee employee = new Employee(1,"Marry","20/10/1998");
+        employee.printInfor();
+    }
 
     @Test
     public void staticVariableTests(){

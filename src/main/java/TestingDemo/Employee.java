@@ -18,14 +18,17 @@ public class Employee {
 
     }
 
-    public Employee(int id, String name, String dob) {
+    public Employee(int id, String name) {
         numOfEmployee++;
 
         this.id = id;
         this.name = name;
-        this.dob = dob;
     }
-
+    public Employee(int id, String name, String dob){
+        this(id, name); // phải nằm ở dòng đầu tiên
+        this.dob =dob;
+        numOfEmployee++;
+    }
 
     //Static method
     //Intance method
@@ -57,5 +60,10 @@ public class Employee {
         this.dob = dob;
     }
 
+    public void printInfor(){
+        System.out.println("Id: " + getId()); // == getId() == this.getId()
+        System.out.println("Name: "+ this.getName());
+        System.out.println("Dob: " + this.getDob());
+    }
 
 }
