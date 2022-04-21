@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class SeleniumTests {
     @Test
     public void seleniumTest1() throws InterruptedException {
@@ -41,13 +43,13 @@ public class SeleniumTests {
         Thread.sleep(3000);
 
         WebElement txtFirstName = webDriver.findElement(By.id("input-firstname"));  // seach by F12= input#input-firstname
-        txtFirstName.sendKeys("Vân 2");
+        txtFirstName.sendKeys("Vân 3");
 
         WebElement txtLastName = webDriver.findElement(By.id("input-lastname"));  // seach by F12= input#input-lastname
         txtLastName.sendKeys("Nguyễn");
 
         WebElement txtEmail = webDriver.findElement(By.id("input-email"));  // seach by F12= input#input-email
-        txtEmail.sendKeys("van@gmail.com");
+        txtEmail.sendKeys("van4@gmail.com");
 
         WebElement txtTelephone = webDriver.findElement(By.id("input-telephone"));  // seach by F12= input-telephone
         txtTelephone.sendKeys("0969205780");
@@ -64,6 +66,11 @@ public class SeleniumTests {
         WebElement btnContinue = webDriver.findElement(By.xpath("//input[@class='btn btn-primary']")); //"input[@class=''btn btn-primary]"
         btnContinue.click();
 
+        WebElement btnCont = webDriver.findElement(By.xpath("//a[@class='btn btn-primary']"));
+        btnCont.click();
+
+        //a[@class='btn btn-primary']
+
 //        webDriver.close();
     }
 
@@ -71,6 +78,9 @@ public class SeleniumTests {
     public void seleniumTest4() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
         WebDriver webDriver = new ChromeDriver();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        webDriver.manage().window().maximize();
+
         webDriver.get("http://tutorialsninja.com/demo/index.php?route=common/home");
         Thread.sleep(8000);
 
@@ -80,5 +90,25 @@ public class SeleniumTests {
         WebElement clickRegister = webDriver.findElement(By.xpath("//a[text()='Register']"));
         clickRegister.click();
 
+    }
+    @Test
+    public void loginTests() throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        webDriver.manage().window().maximize();
+
+
+        webDriver.get("http://tutorialsninja.com/demo/index.php?route=account/login");
+        Thread.sleep(8000);
+
+        WebElement txtFirstName = webDriver.findElement(By.xpath("//input[@id='input-email']"));
+        txtFirstName.sendKeys("van3@gmail.com");
+
+        WebElement txtPassword = webDriver.findElement(By.xpath("//input[@id='input-password']"));
+        txtPassword.sendKeys("Van99");
+
+        WebElement clickRegister = webDriver.findElement(By.xpath("//input[@value='Login']"));
+        clickRegister.click();
     }
 }
