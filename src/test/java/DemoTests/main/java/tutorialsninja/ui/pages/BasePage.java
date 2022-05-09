@@ -43,13 +43,13 @@ public class BasePage {
     protected void setText(WebElement webElement, String text){
          webDriverWait
                  .until(ExpectedConditions.visibilityOf(webElement));
-         javascriptExecutor.executeScript("arguments[0].setAttribute('value',arguments[1]);", webElement,text);
+         javascriptExecutor.executeScript("arguments[0].innerHTML = arguments[1];", webElement,text);
     }
 
     protected void setTextArea(WebElement webElement, String text){
         webDriverWait
                 .until(ExpectedConditions.visibilityOf(webElement));
-        javascriptExecutor.executeScript("arguments[0].innerHTML = arguments[1]);", webElement,text);
+        javascriptExecutor.executeScript("arguments[0].innerHTML = arguments[1];", webElement,text);
     }
 
     protected void click(WebElement webElement){
@@ -65,4 +65,14 @@ public class BasePage {
                 .until(ExpectedConditions.elementToBeClickable(by))
                 .click();
     }
+
+    public String getPageTitle(){
+        return webDriver.getTitle();
+    }
+
+    public String getText(By by){
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(by)).getText();
+        return getText(by);
+    }
+
 }
